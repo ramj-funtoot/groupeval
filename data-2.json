@@ -1,0 +1,27 @@
+{
+    "data": {
+        "question": {
+            "text": "__1__ and __2__ are the gas giants of the Solar System.",
+            "audio": "",
+            "image": ""
+        },
+        "answers": [
+            [ "Jupiter" ],
+            [ "Saturn" ]
+        ],
+        "data":{
+            "expAnswers": [
+                [ "jupiter" ],
+                [ "saturn" ]
+            ],
+            "expAnsIndices": [ 
+                [ 0, 1 ], [ 1, 0 ]
+            ]
+        }
+    },
+    "config": {
+        "eval_unordered": true,
+        "eval_ignore_case": true,
+        "eval_ignore_whitespaces": true
+    }
+}

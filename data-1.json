@@ -1,0 +1,27 @@
+{
+    "data": {
+        "question": {
+            "text": "Complete the sequence: 21, 23, __1__, __2__, 29",
+            "audio": "",
+            "image": ""
+        },
+        "answers": [
+            [ "25" ],
+            [ "27" ]
+        ],
+        "data":{
+            "expAnswers": [
+                [ "25" ],
+                [ "27" ]
+            ],
+            "expAnsIndices": [ 
+                [ 0, 1 ]
+            ]
+        }
+    },
+    "config": {
+        "eval_unordered": false,
+        "eval_ignore_case": true,
+        "eval_ignore_whitespaces": true
+    }
+}

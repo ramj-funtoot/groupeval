@@ -1,0 +1,31 @@
+{
+    "data": {
+        "question": {
+            "text": "__1__ is a gas giant in the Solar system. __2__ is its moon.",
+            "audio": "",
+            "image": ""
+        },
+        "answers": [
+            [ "Jupiter" ],
+            [ "Io", "Europa", "Ganymede", "Callisto" ],
+            [ "Saturn" ],
+            [ "Mimas", "Enceladus", "Tethys", "Dione", "Rhea", "Titan", "Iapetus" ]
+        ],
+        "data":{
+            "expAnswers": [
+                [ "jupiter" ],
+                [ "io", "europa", "ganymede", "callisto" ],
+                [ "saturn" ],
+                [ "mimas", "enceladus", "tethys", "dione", "rhea", "titan", "iapetus" ]
+            ],
+            "expAnsIndices": [ 
+                [ 0, 1 ], [ 2, 3 ]
+            ]
+        }
+    },
+    "config": {
+        "eval_unordered": false,
+        "eval_ignore_case": true,
+        "eval_ignore_whitespaces": true
+    }
+}
