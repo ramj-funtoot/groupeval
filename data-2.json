@@ -15,13 +15,14 @@
                 [ "saturn" ]
             ],
             "expAnsIndices": [ 
-                [ 0, 1 ], [ 1, 0 ]
+                [ 0, 1 ]
             ]
         }
     },
     "config": {
         "eval_unordered": true,
         "eval_ignore_case": true,
-        "eval_ignore_whitespaces": true
+        "eval_ignore_whitespaces": true,
+        "partial_score": true
     }
 }

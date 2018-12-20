@@ -26,6 +26,7 @@
     "config": {
         "eval_unordered": false,
         "eval_ignore_case": true,
-        "eval_ignore_whitespaces": true
+        "eval_ignore_whitespaces": true,
+        "partial_score": true
     }
 }

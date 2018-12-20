@@ -6,7 +6,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-var qData = JSON.parse(fs.readFileSync('data-3.json'))
+var qData = JSON.parse(fs.readFileSync('data.json'))
 console.log('Question', qData.data.question.text);
 //console.log(qData);
 console.log("Answers:");
@@ -25,6 +25,7 @@ rl.on('line', (line) => {
 
 function evaluate(answers) {
     // preprocess user answers - remove embedded white spaces, and convert to lower case, based on the config
+    console.log('answer', answers)
     answers = _.map(answers, function (a) {
         var ans = a;
         if (qData.config.eval_ignore_whitespaces)
@@ -41,15 +42,28 @@ function evaluate(answers) {
             return _.contains(expAns, answer);
         });
     });
-    
+
     // Sort the userAnsIndices array elements in case if unordered evaluation
     if (qData.config.eval_unordered)
         userAnsIndices = _.sortBy(userAnsIndices, function (u) { return u });
-    console.log(userAnsIndices);
+    console.log('userAnsIndices', userAnsIndices);
 
     // if the userAnsIndices are found in the expAnsIndices, then the question is sovled!
     var isSolved = _.some(qData.data.data.expAnsIndices, function (expAns) {
         return _.isEqual(expAns, userAnsIndices);
     });
+    var score = isSolved ? userAnsIndices.length : 0;
+    if (!isSolved && qData.config.partial_score) {
+        var scoreMap = _.map(userAnsIndices, function (u, i) {
+            return _.some(qData.data.data.expAnsIndices, function (expAns) {
+                return qData.config.eval_unordered ? 
+                _.contains(expAns, u) :
+                (expAns[i] == u);
+            }) ? 1 : 0;
+        });
+        console.log('scoreMap', scoreMap);
+        score = _.reduce(scoreMap, function (memo, num) { return memo + num; }, 0);
+    }
     console.log('Solved', isSolved);
+    console.log('Score', score / userAnsIndices.length);
 }
